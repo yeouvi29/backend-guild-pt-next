@@ -1,0 +1,22 @@
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+.title {
+  margin: auto 0;
+}
+
+.rainbow {
+  position: absolute;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.rainbowBox {
+  position: relative;
+  width: 150px;
+  aspect-ratio: 3/2;
+}

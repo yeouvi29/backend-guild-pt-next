@@ -1,0 +1,117 @@
+@keyframes logo-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-wiggle-reverse {
+  0%,
+  100% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+.header {
+  top: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  height: 4rem;
+  gap: 1rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem;
+  gap: 2.5rem;
+}
+
+.logo {
+  height: 60%;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--main-color-light));
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em var(--second-color-light));
+}
+
+.input {
+  box-sizing: border-box;
+  height: 3rem;
+  flex-grow: 1;
+  min-width: 300px;
+  padding: 0.5em;
+  border: 1px solid var(--main-color-light);
+  border-radius: 4px;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid var(--main-color);
+}
+
+.ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.submitButton {
+  height: 3rem;
+}
+
+.errorMessage {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  font-weight: 700;
+  background-color: #ef4444;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.errorMessage > * {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a .logo {
+    animation: 30s linear infinite logo-rotate;
+  }
+
+  a:last-of-type .logo {
+    animation: 10s linear infinite alternate logo-wiggle-reverse;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .input {
+    min-width: 0;
+  }
+}
