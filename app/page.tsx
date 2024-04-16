@@ -13,16 +13,20 @@ import React from "react";
 import Image from "next/image";
 
 export default function Page() {
+  // state for todos, input text, and error message
   const [todos, setTodos] = useState<TodoItemType[]>([]);
-  const inputRef = useRef<HTMLInputElement>(null);
   const [inputText, setInputText] = useState("");
   const [message, setMessage] = useState("");
+  // reference to input element
+  const inputRef = useRef<HTMLInputElement>(null);
 
+  // handle input change
   const handleInput = () => {
     if (inputRef.current === null) return;
     setInputText(inputRef.current.value);
   };
 
+  // send a POST request to the server to add a new todo 
   const addTodo = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -55,6 +59,7 @@ export default function Page() {
     }
   };
 
+  // send a PUT request to the server to update a todo
   const updateTodo = async (id: string, completed: boolean) => {
     try {
       const res = await fetch(`/api/todos/${id}`, {
@@ -77,6 +82,7 @@ export default function Page() {
     }
   };
 
+  // send a DELETE request to the server to delete a todo
   const deleteTodo = async (id: string) => {
     try {
       const res = await fetch(`/api/todos/${id}`, {
@@ -93,6 +99,7 @@ export default function Page() {
     }
   };
 
+  // clear error message after 1 second
   useEffect(() => {
     const timer = setTimeout(() => {
       setMessage("");
@@ -100,6 +107,7 @@ export default function Page() {
     return () => clearTimeout(timer);
   }, [message]);
 
+  // fetch todos from the server when the component mounts
   useEffect(() => {
     (async () => {
       const response = await fetch(`/api/todos`);

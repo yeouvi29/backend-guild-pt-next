@@ -1,5 +1,6 @@
 import { connectToDatabase } from "@/lib/mongodb";
 
+// get all todos from the database
 export async function GET() {
   const { error, db } = await connectToDatabase();
   if (!db) {
@@ -14,6 +15,7 @@ export async function GET() {
   return Response.json({ status: 200, todos });
 }
 
+// add a new todo to the database
 export async function POST(req: Request) {
   const { error, db } = await connectToDatabase();
   if (!db) {

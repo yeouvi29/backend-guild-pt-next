@@ -1,5 +1,6 @@
 import { connectToDatabase } from "@/lib/mongodb";
 
+// delete a todo from the database
 export async function DELETE(
   req: Request,
   { params }: { params: { id: string } }
@@ -38,6 +39,7 @@ export async function DELETE(
   }
 }
 
+// update a todo in the database
 export async function PUT(
   req: Request & { body: { completed: boolean } },
   { params }: { params: { id: string } }

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
-import { TodoItemType } from "../../types";
+import { TodoItemType } from "@/types";
 import Checkbox from "../Checkbox/Checkbox";
 
 import styles from "./styles.module.css";
